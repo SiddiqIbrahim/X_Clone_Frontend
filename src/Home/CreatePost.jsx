@@ -85,7 +85,7 @@ const CreatePost = () => {
 							className='absolute top-0 right-0 text-white bg-gray-800 rounded-full w-5 h-5 cursor-pointer'
 							onClick={() => {
 								setImg(null);
-								imgRef?.current.value = null;
+								imgRef.current.value = null;
 							}}
 						/>
 						<img src={img} className='w-full mx-auto h-72 object-contain rounded ' alt="profileImage" />
