@@ -19,14 +19,14 @@ const Post = ({ post }) => {
 	const postOwner = post?.user;
 	const isLiked = post?.likes.includes(authUser._id);
 
-	const isMyPost = authUser._id === post.user._id; 	
+	const isMyPost = authUser?._id === post.user?._id; 	
 	
 	const formattedData = formatPostDate(post?.createdAt)
 
 	const { mutate: deletePost, isPending: isDeleting } = useMutation({
 		mutationFn: async () => {
 			try {
-				const res = await fetch(`${baseUrl}/api/posts/${post._id}`, {
+				const res = await fetch(`${baseUrl}/api/posts/${post?._id}`, {
 					method: "DELETE",
 					credentials:"include",
 					headers:{
@@ -54,7 +54,7 @@ const Post = ({ post }) => {
 	const { mutate: likePost, isPending: isLiking } = useMutation({
 		mutationFn: async () => {
 			try {
-				const res = await fetch(`${baseUrl}/api/posts/like/${post._id}`, {
+				const res = await fetch(`${baseUrl}/api/posts/like/${post?._id}`, {
 					method: "POST",
 					credentials: "include",
 					headers : {
@@ -93,7 +93,7 @@ const Post = ({ post }) => {
 					throw 	new Error("Comment can't be empty")
 				}
 
-				const res = await fetch(`${baseUrl}/api/posts/comment/${post._id}`, {
+				const res = await fetch(`${baseUrl}/api/posts/comment/${post?._id}`, {
 					method: "POST",
 					credentials: "include",
 					headers: {
@@ -116,8 +116,8 @@ const Post = ({ post }) => {
 		onSuccess: (newComment) => {
 			toast.success("Comment posted successfully");
 			queryClient.setQueryData(["posts"], (newData) => {
-				return newData.map((p) => {
-					if(p._id === post._id){
+				return newData?.map((p) => {
+					if(p?._id === post?._id){
 						return {
 							...p, comments:[...p.comments, newComment]
 						}
@@ -152,17 +152,17 @@ const Post = ({ post }) => {
 		<>
 			<div className='flex gap-2 items-start p-4 border-b border-gray-700'>
 				<div className='avatar'>
-					<Link to={`/profile/${postOwner.username}`} className='w-8 rounded-full overflow-hidden'>
+					<Link to={`/profile/${postOwner?.username}`} className='w-8 rounded-full overflow-hidden'>
 						<img src={postOwner?.profileImg || "/avatar-placeholder.png"} />
 					</Link>
 				</div>
 				<div className='flex flex-col flex-1'>
 					<div className='flex gap-2 items-center'>
-						<Link to={`/profile/${postOwner.username}`} className='font-bold'>
+						<Link to={`/profile/${postOwner?.username}`} className='font-bold'>
 							{postOwner?.fullName}
 						</Link>
 						<span className='text-gray-700 flex gap-1 text-sm'>
-							<Link to={`/profile/${postOwner.username}`}>@{postOwner.username}</Link>
+							<Link to={`/profile/${postOwner?.username}`}>@{postOwner?.username}</Link>
 							<span>·</span>
 							<span>{formattedData}</span>
 						</span>
@@ -190,7 +190,7 @@ const Post = ({ post }) => {
 						<div className='flex gap-4 items-center w-2/3 justify-between'>
 							<div
 								className='flex gap-1 items-center cursor-pointer group'
-								onClick={() => document.getElementById("comments_modal" + post._id).showModal()}
+								onClick={() => document.getElementById("comments_modal" + post?._id).showModal()}
 							>
 								<FaRegComment className='w-4 h-4  text-slate-500 group-hover:text-sky-400' />
 								<span className='text-sm text-slate-500 group-hover:text-sky-400'>
@@ -208,7 +208,7 @@ const Post = ({ post }) => {
 											</p>
 										)}
 										{post?.comments?.map((comment) => (
-											<div key={comment._id} className='flex gap-2 items-start'>
+											<div key={comment?._id} className='flex gap-2 items-start'>
 												<div className='avatar'>
 													<div className='w-8 rounded-full'>
 														<img
