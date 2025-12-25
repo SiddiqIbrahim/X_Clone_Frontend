@@ -73,7 +73,7 @@ const ProfilePage = () => {
 	}, [username, refetch]);
 	const isMyProfile = authUser?._id === user?._id		
 	
-	const amIFollowing = authUser?.following?.includes(user?._id)
+	const amIFollowing = authUser.following.includes(user?._id)
 	console.log("amIFollowing", amIFollowing);
 	
 
