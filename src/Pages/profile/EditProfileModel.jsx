@@ -94,7 +94,7 @@ const EditProfileModal = ({ authUserData }) => {
 								type='text'
 								placeholder='Full Name'
 								className='flex-1 input border border-gray-700 rounded p-2 input-md'
-								value={formData.fullName}
+								value={formData?.fullName}
 								name='fullName'
 								onChange={handleInputChange}
 							/>
@@ -102,7 +102,7 @@ const EditProfileModal = ({ authUserData }) => {
 								type='text'
 								placeholder='Username'
 								className='flex-1 input border border-gray-700 rounded p-2 input-md'
-								value={formData.username}
+								value={formData?.username}
 								name='username'
 								onChange={handleInputChange}
 							/>
@@ -112,7 +112,7 @@ const EditProfileModal = ({ authUserData }) => {
 								type='email'
 								placeholder='Email'
 								className='flex-1 input border border-gray-700 rounded p-2 input-md'
-								value={formData.email}
+								value={formData?.email}
 								name='email'
 								onChange={handleInputChange}
 							/>
@@ -129,7 +129,7 @@ const EditProfileModal = ({ authUserData }) => {
 								type='password'
 								placeholder='Current Password'
 								className='flex-1 input border border-gray-700 rounded p-2 input-md'
-								value={formData.currentPassword}
+								value={formData?.currentPassword}
 								name='currentPassword'
 								onChange={handleInputChange}
 							/>
@@ -137,7 +137,7 @@ const EditProfileModal = ({ authUserData }) => {
 								type='password'
 								placeholder='New Password'
 								className='flex-1 input border border-gray-700 rounded p-2 input-md'
-								value={formData.newPassword}
+								value={formData?.newPassword}
 								name='newPassword'
 								onChange={handleInputChange}
 							/>
@@ -146,7 +146,7 @@ const EditProfileModal = ({ authUserData }) => {
 							type='text'
 							placeholder='Link'
 							className='flex-1 input border border-gray-700 rounded p-2 input-md'
-							value={formData.link}
+							value={formData?.link}
 							name='link'
 							onChange={handleInputChange}
 						/>

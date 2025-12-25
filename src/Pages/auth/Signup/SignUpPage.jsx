@@ -82,7 +82,7 @@ const SignUpPage = () => {
               placeholder="Email"
               name="email"
               onChange={handleInputChange}
-              value={formData.email}
+              value={formData?.email}
             />
           </label>
 
@@ -98,7 +98,7 @@ const SignUpPage = () => {
                 placeholder="Username"
                 name="username"
                 onChange={handleInputChange}
-                value={formData.username}
+                value={formData?.username}
                 />
             </label>
 
@@ -113,7 +113,7 @@ const SignUpPage = () => {
                 placeholder="Full Name"
                 name="fullName"
                 onChange={handleInputChange}
-                value={formData.fullName}
+                value={formData?.fullName}
                 />
             </label>
                 </div>
@@ -129,7 +129,7 @@ const SignUpPage = () => {
               placeholder="Password"
               name="password"
               onChange={handleInputChange}
-              value={formData.password}
+              value={formData?.password}
             />
           </label>
           <button className="btn rounded-full btn-primary text-white">

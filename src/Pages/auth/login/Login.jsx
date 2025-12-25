@@ -70,12 +70,12 @@ const Login = () => {
           <h1 className="text-4xl font-extrabold text-white">{"Let,s"}go.</h1>
           <label htmlFor=""  className="input input-bordered rounded flex items-center gap-2">
             <FaUser />
-            <input type="text" className='grow' placeholder='username' name='username' onChange={handleInputChange} value={formData.username}/>
+            <input type="text" className='grow' placeholder='username' name='username' onChange={handleInputChange} value={formData?.username}/>
           </label>
 
           <label htmlFor="" className='input input-bordered rounded flex items-center gap-2'>
              <RiLockPasswordFill />
-            <input type="password" placeholder='Password' className='grow' name='password'onChange={handleInputChange} value={formData.password} />
+            <input type="password" placeholder='Password' className='grow' name='password'onChange={handleInputChange} value={formData?.password} />
           </label>
           <button className="btn rounded-full btn-primary text-white">
             {isPending ? <LoadingSpinner/> : "Login"}
