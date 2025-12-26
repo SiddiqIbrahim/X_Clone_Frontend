@@ -4,7 +4,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   server:{
-host:true
+host:true,
+preview:{
+  allowedHosts:["https://x-clone-frontend-5bpx.onrender.com"]
+}
   },
   plugins: [
     tailwindcss(),    
