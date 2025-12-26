@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
 host:true,
 preview:{
-  allowedHosts:["https://x-clone-frontend-5bpx.onrender.com"]
+  allowedHosts:"all"
 }
   },
   plugins: [
