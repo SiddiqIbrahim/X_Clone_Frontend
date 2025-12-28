@@ -38,12 +38,14 @@ const Sidebar = () => {
 				if(!res.ok){
 					throw new Error(data.error || "Something went Wrong")
 				}
+				return data
 			} catch (error) {
 				throw error
 			}
 		},
 		onSuccess : () => {
 			toast.success("Logout Successfully")
+			queryClient.setQueryData(["authUser"], null)
 			queryClient.invalidateQueries({
 				queryKey:["authUser"]
 			})
